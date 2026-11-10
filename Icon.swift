@@ -1,0 +1,20 @@
+import Cocoa
+let size = NSSize(width: 1024, height: 1024)
+let image = NSImage(size: size)
+image.lockFocus()
+let bg = NSBezierPath(roundedRect: NSRect(x: 48, y: 48, width: 928, height: 928), xRadius: 210, yRadius: 210)
+NSGradient(starting: NSColor(red: 0.22, green: 0.48, blue: 0.38, alpha: 1), ending: NSColor(red: 0.07, green: 0.24, blue: 0.20, alpha: 1))!.draw(in: bg, angle: -90)
+NSColor(red: 0.57, green: 0.75, blue: 0.64, alpha: 1).setFill()
+let back = NSBezierPath(roundedRect: NSRect(x: 390, y: 260, width: 420, height: 330), xRadius: 110, yRadius: 110); back.fill()
+let tail2 = NSBezierPath(); tail2.move(to: NSPoint(x: 700, y: 315)); tail2.line(to: NSPoint(x: 790, y: 218)); tail2.line(to: NSPoint(x: 788, y: 370)); tail2.close(); tail2.fill()
+NSColor(red: 0.97, green: 0.96, blue: 0.88, alpha: 1).setFill()
+NSBezierPath(roundedRect: NSRect(x: 200, y: 400, width: 540, height: 370), xRadius: 130, yRadius: 130).fill()
+let tail = NSBezierPath(); tail.move(to: NSPoint(x: 260, y: 470)); tail.line(to: NSPoint(x: 235, y: 345)); tail.line(to: NSPoint(x: 390, y: 435)); tail.close(); tail.fill()
+NSColor(red: 0.20, green: 0.43, blue: 0.34, alpha: 1).setFill()
+for x in [340.0, 465.0, 590.0] { NSBezierPath(ovalIn: NSRect(x: x, y: 555, width: 44, height: 44)).fill() }
+NSColor(red: 1, green: 0.77, blue: 0.40, alpha: 1).setFill()
+let star = NSBezierPath()
+star.move(to: NSPoint(x: 779, y: 836)); star.curve(to: NSPoint(x: 851, y: 765), controlPoint1: NSPoint(x: 789,y:780), controlPoint2:NSPoint(x:795,y:776)); star.curve(to:NSPoint(x:779,y:694),controlPoint1:NSPoint(x:795,y:754),controlPoint2:NSPoint(x:789,y:750)); star.curve(to:NSPoint(x:707,y:765),controlPoint1:NSPoint(x:769,y:750),controlPoint2:NSPoint(x:763,y:754)); star.curve(to:NSPoint(x:779,y:836),controlPoint1:NSPoint(x:763,y:776),controlPoint2:NSPoint(x:769,y:780)); star.close(); star.fill()
+image.unlockFocus()
+let rep = NSBitmapImageRep(data: image.tiffRepresentation!)!
+try rep.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: CommandLine.arguments[1]))

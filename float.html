@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'"><style>
+:root{color-scheme:light dark;--bg:#fafafa;--fg:#1d1d1f;--muted:#73737a;--line:#dedee3;--card:#fff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:13px -apple-system,sans-serif}nav{display:flex;gap:6px;padding:10px;position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line)}button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);padding:7px 10px}nav button{flex:1;white-space:nowrap;padding:6px}#status{font-size:12px;color:var(--muted);line-height:1.6;padding:10px 14px;overflow-wrap:anywhere}#replies{padding:0 12px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:9px}.card p{line-height:1.6;margin:0 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}.card button{color:#007aff;font-size:12px}.empty{color:var(--muted);padding:20px 10px;line-height:1.7}@media(prefers-color-scheme:dark){:root{--bg:#252527;--fg:#f5f5f7;--muted:#aaaab0;--line:#45454a;--card:#303033}}</style>
+<nav><button id="ocr"></button><button id="ai"></button><button id="main"></button><button id="hide"></button></nav><div id="status" role="status"></div><div id="replies"></div><script>
+const $=id=>document.getElementById(id);let language='zh',context='',items=[];
+const t=(zh,en)=>language==='en'?en:zh;
+function send(action,data={}){window.webkit.messageHandlers.native.postMessage({action,...data});}
+function render(){
+ document.documentElement.lang=language==='en'?'en':'zh-CN';
+ $('ocr').textContent=t('读当前聊天','Read chat');$('ai').textContent=t('AI 选区','AI select');$('main').textContent=t('完整界面','Full app');$('hide').textContent=t('隐藏','Hide');
+ $('replies').replaceChildren();
+ if(!items.length){const e=document.createElement('div');e.className='empty';e.textContent=t('在完整界面设置语气和模型，在这里快捷框选并查看建议。','Choose tone and model in the full app. Select messages and view replies here.');$('replies').append(e);}
+ items.forEach(text=>{const a=document.createElement('article');a.className='card';const p=document.createElement('p');p.textContent=text;const b=document.createElement('button');b.textContent=t('复制这条回复','Copy reply');b.onclick=()=>send('copy',{text});a.append(p,b);$('replies').append(a);});
+}
+window.receive=d=>{
+ if(d.type==='preferences'){language=d.language==='en'?'en':'zh';render();}
+ if(d.type==='draftContext'||d.type==='context'||d.type==='ocrReady'){if(context!==d.text){context=d.text;items=[];render();}}
+ if(d.type==='profile'||d.type==='discarded'){context='';items=[];render();}
+ if(['notice','error','readStatus'].includes(d.type)){$('status').textContent=d.text;if(d.clear){context='';items=[];render();}}
+ if(d.type==='busy'){$('status').textContent=t('正在生成回复…','Generating replies…');}
+ if(d.type==='replies'&&d.forContext===context.trim()){items=d.items;render();$('status').textContent=t('建议已生成，由你选择与发送。','Replies ready. You choose and send.');}
+};
+$('ocr').onclick=()=>send('readCurrentFloat');$('ai').onclick=()=>send('ocrAIFloat');$('main').onclick=()=>send('showMain');$('hide').onclick=()=>send('floating',{enabled:false});
+render();send('ready');
+</script></html>

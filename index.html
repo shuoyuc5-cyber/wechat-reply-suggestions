@@ -1,0 +1,115 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: file:">
+<style>
+:root{color-scheme:light dark;--bg:#fff;--sidebar:#f2f2f7;--sub:#6e6e73;--line:#e5e5ea;--surface:#f5f5f7;--text:#1d1d1f;--accent:#007aff;--control:#fff;--shadow:0 1px 3px #0000000c}*{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font:13px -apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;letter-spacing:-.15px}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:7px;background:var(--control);padding:7px 11px;box-shadow:var(--shadow)}button:hover{filter:brightness(.97)}button:disabled{opacity:.4;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #007aff55;outline-offset:2px}button.primary{background:var(--accent);color:white;border-color:transparent;padding:10px 20px;font-weight:600}.layout{display:grid;grid-template-columns:240px 1fr;height:100vh}aside{background:var(--sidebar);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:22px;overflow:auto}.brand{font-size:17px;font-weight:650;padding:0 10px;display:flex;gap:10px;align-items:center}.mark{background:linear-gradient(#55a4ff,#007aff);color:white;border-radius:9px;width:30px;height:30px;text-align:center;line-height:27px;font-size:20px}.caption{color:var(--sub);font-size:11px;font-weight:600;margin:0 10px 9px}.side-card{padding:12px;background:var(--bg);border-radius:10px;border:1px solid var(--line);line-height:1.65;overflow-wrap:anywhere}#profile-status{font-weight:550}.side-actions{display:grid;gap:7px}.side-actions button{text-align:left;background:transparent;box-shadow:none;border-color:transparent;color:var(--sub)}.side-actions button:hover{background:#88888810;color:var(--text)}.shortcut{margin-top:auto;padding:10px;color:var(--sub);font-size:11px;line-height:1.8}kbd{border:1px solid var(--line);border-radius:4px;background:var(--bg);padding:2px 5px}main{overflow:auto}.toolbar{min-height:74px;padding:20px 28px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.toolbar h1{font-size:19px;letter-spacing:-.4px;margin:0;font-weight:650}.subtitle{font-size:12px;color:var(--sub);margin-top:5px}.pill{font-size:11px;color:var(--sub);background:var(--surface);padding:6px 10px;border-radius:20px}.workspace{padding:25px 28px;display:grid;grid-template-columns:minmax(280px,1fr) minmax(260px,1fr);gap:26px}.row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}h2,label.section-label{font-size:13px;font-weight:600;margin:0}.hint,.muted{font-size:11px;color:var(--sub);line-height:1.6}.source-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.source-actions button{font-size:12px}textarea,input[type=text],select{border:1px solid var(--line);background:var(--control);border-radius:8px;padding:10px;width:100%;outline:none}textarea{line-height:1.7;resize:vertical;min-height:75px}#context{height:220px}textarea[readonly]{background:var(--surface)}.field{margin-top:18px}.field>label{display:block;margin-bottom:8px;font-weight:550}.update-row{display:flex;align-items:center;justify-content:space-between;margin:14px 0 5px}.switch{display:inline-block;position:relative;width:32px;height:20px}.switch input{opacity:0;position:absolute;width:32px;height:20px;margin:0;cursor:pointer}.track{display:block;width:32px;height:20px;border-radius:15px;background:#c7c7cc;pointer-events:none;transition:.15s}.track:after{content:"";display:block;position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:white;box-shadow:0 1px 3px #0002;transition:.15s}.switch input:checked+.track{background:var(--accent)}.switch input:checked+.track:after{transform:translateX(12px)}.switch input:disabled+.track{opacity:.35}.switch input:focus-visible+.track{outline:3px solid #007aff55}#cloud-options{margin-top:9px;padding:12px;background:var(--surface);border-radius:8px}#cloud-options button{margin:9px 0}.generate-row{margin-top:20px;display:flex;justify-content:flex-end}.empty{background:var(--surface);border-radius:12px;min-height:360px;padding:35px;display:grid;place-content:center;text-align:center;color:var(--sub);line-height:1.8}.card{border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:12px;box-shadow:var(--shadow)}.card small{font-size:11px;color:var(--sub)}.card p{font-size:15px;line-height:1.8;margin:12px 0 16px;white-space:pre-wrap}.card button{font-size:12px;color:var(--accent)}#notice{font-size:12px;line-height:1.6;color:var(--sub);margin-top:13px;min-height:25px}.bad{color:#b45b32}.spinner{animation:pulse 1.3s infinite}@keyframes pulse{50%{opacity:.55}}[hidden]{display:none!important}@media(prefers-color-scheme:dark){:root{--bg:#1e1e20;--sidebar:#28282b;--sub:#a1a1a6;--line:#3a3a3c;--surface:#2b2b2e;--text:#f5f5f7;--control:#333336;--shadow:none;--accent:#0a84ff}}@media(max-width:850px){.layout{grid-template-columns:185px 1fr}.workspace{grid-template-columns:1fr}.toolbar{padding:16px 20px}.workspace{padding:20px}}
+.compact-status{display:none}.floating .compact-status{display:block;position:sticky;top:48px;z-index:4;padding:6px 14px;background:var(--bg);border-bottom:1px solid var(--line);max-height:100px;overflow:auto}.compact-actions{display:none}.floating .layout{display:block}.floating aside,.floating .toolbar{display:none}.floating main{height:100vh}.floating .compact-actions{display:flex;gap:6px;position:sticky;top:0;background:var(--bg);padding:9px 12px;z-index:5;border-bottom:1px solid var(--line)}.floating .compact-actions button{flex:1;font-size:12px;padding:6px 8px;white-space:nowrap}.floating .workspace{display:flex;flex-direction:column;padding:14px;gap:18px}.floating .workspace>section:first-child{order:2}.floating .workspace>section:last-child{order:1}.floating .empty{min-height:90px;padding:20px}.floating .card{padding:12px;margin-bottom:8px}.floating .card p{font-size:14px;line-height:1.5;margin:7px 0}.floating #context{height:90px;min-height:60px}.floating .field{margin-top:12px}.floating .generate-row{justify-content:stretch}.floating #generate{width:100%}</style>
+<div class="layout"><aside><div class="brand"><img class="mark" src="AppIcon.png" alt="">回复建议</div><section><div class="caption">当前会话</div><div class="side-card" id="profile-status">未关联档案</div><div class="source-actions"><button class="primary" id="read-current">读取当前聊天</button><button id="screen-check">选择微信窗口并读取</button><button id="ocr">手动框选</button><button id="ocr-ai">本地 AI 选区</button><button id="ocr-session">会话自动读取</button><button id="read">辅助读取</button></div><div class="update-row"><span>自动更新当前会话</span><label class="switch" aria-label="自动更新当前会话"><input id="auto-read" type="checkbox"><span class="track"></span></label></div><div class="hint" id="read-status" role="status">打开微信聊天后点「读取当前聊天」，核对识别结果再生成。</div></section><section><div class="caption">界面语言 / Language</div><select id="language" aria-label="界面语言 / Language"><option value="zh">简体中文</option><option value="en">English</option></select></section><section><div class="caption">工具</div><div class="side-actions"><button id="floating-toggle">切换小浮窗</button><button id="profiles">打开当前档案</button><button id="screen-settings">屏幕录制权限</button><button id="permission">辅助功能权限</button><button id="ocr-test">检查文字识别</button><button id="check">检查本地模型</button></div></section><div class="shortcut"><kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd> 显示或隐藏<br>隐藏时会结束当前会话授权。</div></aside><main><div class="compact-actions"><button id="float-ocr">框选</button><button id="float-ai">AI 选区</button><button id="float-expand">展开</button><button id="float-hide">隐藏</button></div><div id="float-status" class="compact-status hint" role="status">打开微信聊天后点「读取当前聊天」，核对识别结果再生成。</div><div class="toolbar"><div><h1>让回复更自然</h1><div class="subtitle">确认上下文，挑一句适合自己的。</div></div><label class="float-control"><input id="floating-enabled" type="checkbox"> <span>启用悬浮窗</span></label><span class="pill" id="model">正在连接本地模型…</span></div><div class="workspace"><section><div class="row"><h2>聊天上下文</h2><button id="paste-context">粘贴聊天</button></div><textarea id="context" maxlength="12000" placeholder="点击「读取当前聊天」识别会话，也可输入文字。"></textarea><div class="hint">已确认会话分开保存在本机。切换会话会停止读取并清空当前内容。</div><div class="field"><label for="intent">想表达什么 <span class="muted">可选</span></label><textarea id="intent" maxlength="1000" placeholder="例如：关心一下，轻松点，不要太肉麻。"></textarea></div><div class="field"><label for="tone">回复语气</label><select id="tone"><option value="自然日常">自然日常</option><option value="温柔关心，有分寸">温柔关心，有分寸</option><option value="暧昧粘人">暧昧粘人</option><option value="轻松幽默，不尬聊">轻松幽默，不尬聊</option><option value="职场礼貌，简洁清楚">职场礼貌，简洁清楚</option><option value="委婉拒绝，保留边界">委婉拒绝，保留边界</option></select></div><div class="field"><label for="reply-language">回复语言</label><select id="reply-language"><option value="auto">跟随聊天</option><option value="zh">中文</option><option value="en">English</option></select></div><div class="update-row"><span>更自然 · Humanizer</span><label class="switch" aria-label="更自然 · Humanizer"><input id="humanize" type="checkbox" checked><span class="track"></span></label></div><div class="hint">减少套话，保留原意。不增加请求次数。</div><div class="field"><label for="provider">生成模型</label><select id="provider"><option value="local">本地 Ollama · qwen3:8b</option><option value="deepseek">DeepSeek API</option><option value="gemini">Gemini API</option></select><div id="cloud-options" hidden><label for="cloud-model" class="hint">模型名称</label><input type="text" id="cloud-model" value="deepseek-flash" maxlength="90"><button id="deepseek-key">设置 DeepSeek Key</button><button id="gemini-key" hidden>设置 Gemini Key</button><div class="hint">Key 保存在 macOS 钥匙串。每次云端发送前单独确认，可能产生 API 费用。</div></div></div><div class="generate-row"><button class="primary" id="generate" disabled>生成 3 条回复建议</button></div><div id="notice" role="status"></div></section><section><div class="row"><h2>回复建议</h2><span class="muted">由你选择与发送</span></div><div id="results"><div class="empty">这里是你的回复备选。<br>先确认一段聊天，再点击生成。</div></div></section></div></main></div>
+<script>
+const $=id=>document.getElementById(id);
+const english={"读取当前聊天":"Read current chat","手动框选":"Select manually","启用悬浮窗":"Enable floating window","粘贴聊天":"Paste chat text","选择微信窗口并读取":"Choose WeChat window and read","隐藏小浮窗":"Hide floating window","显示小浮窗":"Show floating window","本地 AI 选区":"Local AI selection","切换小浮窗":"Toggle floating window","框选":"Select","AI 选区":"AI select","展开":"Expand","隐藏":"Hide","框选消息 · OCR":"Select messages · OCR","会话自动读取":"Read a conversation","打开微信聊天后点「读取当前聊天」，核对识别结果再生成。":"Open a WeChat conversation, select Read current chat, then review and generate.","本次 OCR 或已确认会话":"Current OCR capture or confirmed chat","点击「读取当前聊天」识别会话，也可输入文字。":"Read the current WeChat conversation or enter text.","回复建议": "Reply suggestions", "当前会话": "Current conversation", "开始读取": "Start reading", "辅助读取": "Accessibility", "自动更新当前会话": "Update this chat", "首次点击会推荐选区，确认后自动更新。": "Start reading, check the suggested areas, then confirm the conversation.", "工具": "Tools", "打开当前档案": "Open current profile", "检查屏幕访问": "Check screen access", "屏幕录制权限": "Screen Recording", "辅助功能权限": "Accessibility access", "检查文字识别": "Check text recognition", "检查本地模型": "Check local model", "显示或隐藏": "Show or hide", "隐藏时会结束当前会话授权。": "Hiding ends access to the current conversation.", "让回复更自然": "Find the right words", "确认上下文，挑一句适合自己的。": "Check the context. Pick a reply that sounds like you.", "正在连接本地模型…": "Connecting to the local model…", "聊天上下文": "Conversation context", "仅当前已确认会话": "Only the confirmed conversation", "点击左侧「开始读取」读取，或临时粘贴一段聊天。": "Click Start reading, or enter some conversation text.", "已确认会话分开保存在本机。切换会话会停止读取并清空当前内容。": "Confirmed conversations have separate local profiles. Switching chats stops reading and clears the current context.", "想表达什么": "What you want to say", "可选": "Optional", "例如：关心一下，轻松点，不要太肉麻。": "For example: show some care, keep it light, not too sweet.", "回复语气": "Tone", "自然日常": "Everyday", "温柔关心，有分寸": "Warm and considerate", "暧昧粘人": "Flirty and affectionate", "轻松幽默，不尬聊": "Light and playful", "职场礼貌，简洁清楚": "Polite and professional", "委婉拒绝，保留边界": "Kind refusal, clear boundaries", "生成模型": "Model", "本地 Ollama · qwen3:8b": "Local Ollama · qwen3:8b", "模型名称": "Model name", "设置 DeepSeek Key": "Set DeepSeek Key", "设置 Gemini Key": "Set Gemini Key", "Key 保存在 macOS 钥匙串。每次云端发送前单独确认，可能产生 API 费用。": "Keys are stored in macOS Keychain. Every cloud request needs approval and may incur API charges.", "生成 3 条回复建议": "Generate 3 replies", "由你选择与发送": "You choose and send", "这里是你的回复备选。": "Your reply options will appear here.", "先确认一段聊天，再点击生成。": "Confirm some context, then generate replies.", "回复语言": "Reply language", "跟随聊天": "Match the conversation", "中文": "Chinese", "更自然 · Humanizer": "More natural · Humanizer", "减少套话，保留原意。不增加请求次数。": "Less filler, same meaning. No extra model requests.", "正在想几个合适的说法…": "Thinking of a few replies…", "上下文已更新，点击生成新的回复建议。": "Context updated. Generate fresh replies.", "当前档案：": "Profile: ", "未关联档案": "No linked profile", "请选择并确认当前会话，再读取上下文。": "Select and confirm a conversation before reading messages.", "会话授权已变化，过期回复已丢弃。": "Conversation access changed. Outdated replies discarded.", "正在等待当前微信消息…": "Waiting for messages in this conversation…", "自动更新已暂停，重新开启前会核对会话。": "Updates paused. The conversation will be checked before resuming.", "自动读取中": "Reading automatically", "已读取可见消息": "Visible messages read", "已读入上下文，请点击「生成 3 条回复建议」": "Context ready. Click Generate 3 replies.", "正在使用本机模型…": "Using the local model…", "正在请求": "Requesting", "聊天上下文已变化，请根据最新消息重新生成。": "The context changed. Generate replies for the latest messages.", "建议已生成。": "Replies are ready. ", "本次 API 用量：": "API usage: ", "按自己的习惯改一改再发。": "Make any edits you want before sending.", "备选": "Option", "复制这条回复": "Copy reply", "语言已切换，当前聊天内容保持不变。": "Language changed. Your conversation text is unchanged."};
+let floatingVisible=false;
+let language='zh', automatic=false, confirmed=false, isBusy=false, placeholderKey=null, profileData=null;
+const staticText=[];
+const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+while(walker.nextNode()) {
+ const node=walker.currentNode;
+ if(!['SCRIPT','STYLE','TEXTAREA'].includes(node.parentElement.tagName)&&node.textContent.trim()) staticText.push([node,node.textContent]);
+}
+const attributes=[];
+document.querySelectorAll('[placeholder],[aria-label]').forEach(el=>['placeholder','aria-label'].forEach(a=>{if(el.hasAttribute(a))attributes.push([el,a,el.getAttribute(a)]);}));
+function t(text) { const key=text.trim(); return language==='en'&&english[key]!==undefined?text.replace(key,english[key]):text; }
+function applyLanguage(value) {
+ language=value==='en'?'en':'zh'; document.documentElement.lang=language==='en'?'en':'zh-CN'; $('language').value=language;
+ staticText.forEach(([node,text])=>{node.textContent=t(text);});
+ attributes.forEach(([el,a,text])=>el.setAttribute(a,t(text)));
+ busy(isBusy);
+ if(placeholderKey&&$('results').querySelector('.empty'))$('results').querySelector('.empty').textContent=t(placeholderKey);
+ if(profileData)$('profile-status').textContent=t('当前档案：')+(profileData.id?profileData.name:t('未关联档案'))+(profileData.id?' · '+profileData.id.slice(0,8):'');
+ document.querySelectorAll('.card button').forEach(b=>b.textContent=t('复制这条回复'));
+ document.querySelectorAll('.card small').forEach((b,i)=>b.textContent=t('备选')+' 0'+(i+1));
+}
+function send(action,data={}) { window.webkit.messageHandlers.native.postMessage({action,...data}); }
+function busy(value) {
+ isBusy=value; $('generate').disabled=value||pendingReview||!$('context').value.trim();
+ $('generate').textContent=t(value?'正在想几个合适的说法…':'生成 3 条回复建议');
+ $('generate').classList.toggle('spinner',value);
+}
+function clearReplies(text='上下文已更新，点击生成新的回复建议。') {
+ placeholderKey=text; const placeholder=document.createElement('div'); placeholder.className='empty'; placeholder.textContent=t(text);
+ $('results').replaceChildren(placeholder);
+}
+function updateContext(text) {
+ if($('context').value!==text) { $('context').value=text; busy(isBusy); clearReplies(); }
+}
+let lastOCREpoch=null;
+let pendingReview=false, lastReadEpoch=0, minimumReadEpoch=0;
+window.receive=function(d) {
+ if(Number.isInteger(d.epoch)){if(d.epoch<minimumReadEpoch)return;lastReadEpoch=Math.max(lastReadEpoch,d.epoch);}
+ if(d.type==='manualContext'){pendingReview=false;confirmed=false;automatic=false;$('context').readOnly=false;updateContext(d.text);$('intent').value=d.intent??$('intent').value;publishDraft();busy(isBusy);}
+ if(d.type==='ocrReviewCancelled'){pendingReview=false;busy(isBusy);}
+ if(d.type==='ocrPreview'){pendingReview=true;updateContext(d.text);busy(isBusy);}
+
+ if(d.type==='ocrReady') {
+  if(lastOCREpoch===d.epoch)return;
+  lastOCREpoch=d.epoch; pendingReview=false; confirmed=false; $('context').readOnly=false; updateContext(d.text);
+  $('intent').value=d.options.intent;publishDraft();
+  // Generation is performed by the native app after explicit OCR approval.
+ }
+ if(d.type==='floating'){floatingVisible=!!d.enabled;$('floating-enabled').checked=floatingVisible;$('floating-toggle').textContent=t(floatingVisible?'隐藏小浮窗':'显示小浮窗');}
+ if(d.type==='preferences') { applyLanguage(d.language); $('humanize').checked=d.humanize; $('reply-language').value=d.replyLanguage; }
+ if(d.type==='profile') {
+  profileData=d;
+  confirmed=!!d.id; $('auto-read').disabled=false; $('context').readOnly=false;
+  $('profile-status').textContent=t('当前档案：')+(d.id?d.name:t('未关联档案'))+(d.id?' · '+d.id.slice(0,8):'');
+  if(!d.preserveEditor){pendingReview=false;updateContext('');clearReplies('请选择并确认当前会话，再读取上下文。');$('intent').value='';}
+  publishDraft();
+ }
+ if(d.type==='discarded') { busy(false); clearReplies('会话授权已变化，过期回复已丢弃。'); }
+ if(d.type==='model') { $('model').textContent=d.text; $('model').classList.toggle('bad',!d.ok); }
+ if(d.type==='autoRead') {
+  automatic=d.enabled; if(d.confirmed!==undefined)confirmed=d.confirmed; $('auto-read').checked=automatic; $('auto-read').disabled=false;
+  $('context').readOnly=false;
+  $('read-status').textContent=t(automatic?'正在等待当前微信消息…':'自动更新已暂停，重新开启前会核对会话。');
+ }
+ if(d.type==='readStatus') { $('float-status').textContent=d.text; $('read-status').textContent=d.text; if(d.clear)updateContext(''); }
+ if(d.type==='notice'||d.type==='error') { $('float-status').textContent=d.text; $('notice').textContent=d.text; if(d.type==='error'){pendingReview=false;busy(false);$('read-status').textContent=d.text;} }
+ if(d.type==='context') {
+  updateContext(d.text);
+  $('read-status').textContent=t(d.automatic?'自动读取中':'已读取可见消息')+' · '+new Date().toLocaleTimeString(language==='en'?'en-US':'zh-CN')+' · '+t('已读入上下文，请点击「生成 3 条回复建议」');
+ }
+ if(d.type==='busy') { $('float-status').textContent=d.provider==='local'?t('正在使用本机模型…'):t('正在请求')+' '+(d.provider==='gemini'?'Gemini':'DeepSeek')+' API…'; busy(true); $('notice').textContent=d.provider==='local'?t('正在使用本机模型…'):t('正在请求')+' '+(d.provider==='gemini'?'Gemini':'DeepSeek')+' API…'; }
+ if(d.type==='replies') {
+  $('float-status').textContent=t('建议已生成。'); busy(false);
+  if(d.forContext!==$('context').value.trim()) { $('notice').textContent=t('聊天上下文已变化，请根据最新消息重新生成。'); return; }
+  $('notice').textContent=t('建议已生成。')+(d.provider!=='local'?t('本次 API 用量：')+d.usage+' tokens. ':'')+t('按自己的习惯改一改再发。');
+  placeholderKey=null; $('results').replaceChildren();
+  d.items.forEach((text,i)=>{
+   const card=document.createElement('article'); card.className='card';
+   const num=document.createElement('small'); num.textContent=t('备选')+' 0'+(i+1);
+   const p=document.createElement('p'); p.textContent=text;
+   const button=document.createElement('button'); button.textContent=t('复制这条回复'); button.onclick=()=>send('copy',{text});
+   card.append(num,p,button); $('results').append(card);
+  });
+ }
+};
+$('language').onchange=()=>{ applyLanguage($('language').value); send('preferences',{language}); $('read-status').textContent=t('语言已切换，当前聊天内容保持不变。'); };
+$('humanize').onchange=()=>send('preferences',{humanize:$('humanize').checked});
+$('reply-language').onchange=()=>send('preferences',{replyLanguage:$('reply-language').value});
+$('generate').onclick=()=>send('generate',{context:$('context').value,intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value});
+$('paste-context').onclick=()=>send('pasteContext');$('floating-enabled').onchange=()=>send('floating',{enabled:$('floating-enabled').checked});
+$('floating-toggle').onclick=()=>send('floating',{enabled:!floatingVisible}); $('float-expand').onclick=()=>send('floating',{enabled:false}); $('float-hide').onclick=()=>send('hide'); $('float-ocr').onclick=()=>$('ocr').click(); $('float-ai').onclick=()=>$('ocr-ai').click();
+$('read-current').onclick=()=>send('readCurrent',{intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value});
+$('ocr-ai').onclick=()=>send('ocrAI',{intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value});
+$('read').onclick=()=>send('authorize'); $('ocr').onclick=()=>send('ocrOnce',{intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value}); $('ocr-session').onclick=()=>send('ocr'); $('ocr-test').onclick=()=>send('ocrTest');
+$('screen-check').onclick=()=>send('chooseAndRead',{intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value}); $('screen-settings').onclick=()=>send('screenSettings'); $('profiles').onclick=()=>send('profiles');
+$('auto-read').onchange=()=>send('autoRead',{enabled:$('auto-read').checked});
+$('context').oninput=()=>{minimumReadEpoch=lastReadEpoch+1;pendingReview=false;confirmed=false;automatic=false;send('detachContext');busy(isBusy);clearReplies();}; $('permission').onclick=()=>send('settings'); $('check').onclick=()=>send('check');
+$('provider').onchange=()=>{
+ const provider=$('provider').value; $('cloud-options').hidden=provider==='local';
+ $('cloud-model').value=provider==='gemini'?'gemini-3.8-flash':'deepseek-flash';
+ $('deepseek-key').hidden=provider!=='deepseek'; $('gemini-key').hidden=provider!=='gemini';
+};
+$('gemini-key').onclick=()=>send('geminiKey'); $('deepseek-key').onclick=()=>send('deepseekKey');
+function publishDraft(){send('draft',{context:$('context').value,intent:$('intent').value,tone:$('tone').value,provider:$('provider').value,cloudModel:$('cloud-model').value});}
+['context','intent','tone','provider','cloud-model'].forEach(id=>{ $(id).addEventListener('input',publishDraft);$(id).addEventListener('change',publishDraft); });
+send('ready');publishDraft();
+</script></html>
