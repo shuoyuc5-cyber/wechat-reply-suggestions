@@ -8,6 +8,7 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$ROOT/.build-cache"
 /bin/cp "$ROOT/float.html" "$APP/Contents/Resources/float.html"
 /bin/cp "$ROOT/index.html" "$APP/Contents/Resources/index.html"
 if [[ -f "$ROOT/AppIcon.icns" ]]; then /bin/cp "$ROOT/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"; fi
+/bin/cp "$ROOT/AppIcon.png" "$APP/Contents/Resources/AppIcon.png"
 /bin/cp "$ROOT/BrandIcon.png" "$APP/Contents/Resources/BrandIcon.png"
 /usr/bin/codesign --force --sign - "$APP"
 echo "已构建：$APP"
